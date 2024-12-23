@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
+CSRF_TRUSTED_ORIGINS = ['https://banking-app-007.onrender.com','https://*.127.0.0.1']
 
 env = environ.Env()
 environ.Env.read_env()
