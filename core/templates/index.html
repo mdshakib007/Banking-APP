@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home - AspireBank{% endblock title %}
+
+
+{% block main %}
+
+<div
+  class="hero min-h-screen"
+  style="background-image: url({% static '3.jpg' %});">
+  <div class="hero-overlay bg-opacity-60"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold text-white">Welcome to AspireBank</h1>
+      <p class="mb-5 text-white">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis vitae eveniet odit earum molestias rerum illo repellendus tempore reiciendis non!
+      </p>
+      <a class="btn btn-primary" 
+      {% if user.is_authenticated %} href="{% url 'profile' %} 
+      {% else %} href="{% url 'register' %} 
+      {% endif %} ">Get Started</a>
+    </div>
+  </div>
+</div>
+
+{% comment %} Menu Section {% endcomment %}
+{% if user.is_authenticated %}
+
+<h1 class="font-bold text-5xl text-center my-6">MENU</h1>
+<hr>
+<hr>
+<div class="container flex justify-center gap-4 m-5 flex-wrap">
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-circle-arrow-down"></i> Deposit</h2>
+        <p>Want to Deposit Money to Your Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'deposit_money' %}"><i class="fa-solid fa-circle-arrow-down"></i> Deposit</a>
+        </div>
+      </div>
+  </div>
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-circle-arrow-up"></i> Withdraw</h2>
+        <p>Want to Withdraw Money from Your Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'withdraw_money' %}"><i class="fa-solid fa-circle-arrow-up"></i> Withdraw</a>
+        </div>
+      </div>
+  </div>
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-arrow-trend-up"></i> Money Transfer</h2>
+        <p>Want to Transfer Money from Your Account to Another Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'send_money' %}"><i class="fa-solid fa-arrow-trend-up"></i> Money Transfer</a>
+        </div>
+      </div>
+  </div>
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Request For a Loan</h2>
+        <p>Want to Request For a Lona from AspireBank to Your Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'loan_request' %}"><i class="fa-solid fa-hand-holding-dollar"></i> Request Loan</a>
+        </div>
+      </div>
+  </div>
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-money-check-dollar"></i> Transaction Report</h2>
+        <p>See Full Transaction Report of Your Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'transaction_report' %}"><i class="fa-solid fa-money-check-dollar"></i> Transactions</a>
+        </div>
+      </div>
+  </div>
+  <div class="card bg-base-100 w-96 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><i class="fa-solid fa-money-check-dollar"></i> My Loans</h2>
+        <p>See The Report of Loan of Your Account?</p>
+        <div class="card-actions justify-end">
+          <a class="btn btn-primary text-white" href="{% url 'loan_list' %}"><i class="fa-solid fa-money-check-dollar"></i> My Loans</a>
+        </div>
+      </div>
+  </div>
+</div>
+<hr>
+<hr>
+{% endif %}
+
+
+{% comment %} FAQ Section {% endcomment %}
+<div class="faq my-10 w-10/12 mx-auto">
+    <h1 class="my-3 text-3xl font-bold">Frequently Asked Questions</h1>
+
+    <div class="collapse collapse-plus bg-base-200 mb-2">
+      <input type="radio" name="my-accordion-3" checked="checked" />
+      <div class="collapse-title text-xl font-medium">How Can I Open An Account?</div>
+      <div class="collapse-content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum consectetur dolores cupiditate. Aliquam, laborum dolore nesciunt libero ea mollitia? Sed fugiat eveniet sequi dolorem! Sit, dicta voluptatum necessitatibus totam impedit repudiandae enim, ab voluptatibus minus veritatis deleniti soluta animi commodi at neque officiis in ipsa voluptate fugiat quia cupiditate asperiores!</p>
+      </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200 mb-2">
+        <input type="radio" name="my-accordion-3"/>
+        <div class="collapse-title text-xl font-medium">Why AspireBank?</div>
+        <div class="collapse-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa alias modi nobis nihil expedita delectus a facere nisi amet quisquam, numquam enim eum quas. Animi, sapiente mollitia. Aspernatur necessitatibus illum praesentium quasi voluptatem laboriosam veritatis harum explicabo sed autem fuga, possimus nihil ab natus voluptate dicta voluptatum iste hic deserunt!</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200 mb-2">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">What Is The Interest Rate?</div>
+        <div class="collapse-content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nostrum, eos blanditiis vitae numquam odit neque aliquam eum quisquam rem aperiam hic cupiditate voluptatem architecto totam eius reiciendis harum impedit. Architecto, quisquam suscipit enim corporis voluptatibus, officia magni consequuntur, dolor perferendis quaerat odio consectetur animi deserunt doloribus sit est facilis.</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200 mb-2">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">Is Aspire Bank Safe?</div>
+        <div class="collapse-content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nostrum, eos blanditiis vitae numquam odit neque aliquam eum quisquam rem aperiam hic cupiditate voluptatem architecto totam eius reiciendis harum impedit. Architecto, quisquam suscipit enim corporis voluptatibus, officia magni consequuntur, dolor perferendis quaerat odio consectetur animi deserunt doloribus sit est facilis.</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200 mb-2">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">How To Request For A Loan?</div>
+        <div class="collapse-content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe nostrum, eos blanditiis vitae numquam odit neque aliquam eum quisquam rem aperiam hic cupiditate voluptatem architecto totam eius reiciendis harum impedit. Architecto, quisquam suscipit enim corporis voluptatibus, officia magni consequuntur, dolor perferendis quaerat odio consectetur animi deserunt doloribus sit est facilis.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

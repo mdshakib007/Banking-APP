@@ -1,0 +1,53 @@
+{% load static %}
+
+<nav>
+    <div class="navbar bg-base-300 text-base-content">
+        <div class="flex-1">
+          <a class="btn btn-ghost text-xl" href="{% url 'home' %}">AspireBank</a>
+          <ul class="menu menu-horizontal px-1 text-black font-bold">
+              <li>
+                <details>
+                  <summary>Menu</summary>
+                  <ul class="bg-base-200 rounded-t-none p-2 shadow-lg">
+                    {% if user.is_authenticated %}
+                    <kbd class="kbd md:hidden">{{user.first_name}} ${{user.account.balance}}</kbd>
+                    <li><a href="{% url 'deposit_money' %}">Deposit</a></li>
+                    <li><a href="{% url 'withdraw_money' %}">Withdraw</a></li>
+                    <li><a href="{% url 'loan_request' %}">Loan</a></li>
+                    <li><a href="{% url 'transaction_report' %}">Report</a></li>
+                    <li><a href="{% url 'menu' %}">More</a></li>
+                    {% else %}
+                    <li><a href={% url 'login' %}><i class="fa-solid fa-address-card"></i> Register/Login</a></li>
+                    {% endif %}
+                  </ul>
+                </details>
+              </li>
+            </ul>
+        </div>
+        <div class="flex-none">
+          {% if user.is_authenticated %}
+          <div class="hidden md:inline"><kbd class="kbd">{{user.first_name}} ${{user.account.balance}}</kbd></div>
+          {% endif %}
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img
+                  alt="profile"
+                  src="{% static 'default.png' %}" />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow-lg">
+              {% if user.is_authenticated %}
+              <li><a href="{% url 'profile' %}"><i class="fa-solid fa-user"></i> Profile</a></li>
+              <li><a href="{% url 'update-profile' %}"><i class="fa-solid fa-gear"></i> Settings</a></li>
+              <li><a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+              {% else %}
+              <li><a href="{% url 'login' %}"><i class="fa-solid fa-address-card"></i> Register/Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+</nav>

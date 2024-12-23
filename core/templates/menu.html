@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Menu - AspireBank{% endblock title %}
+
+{% block main %}
+
+<div class="container flex justify-center gap-4 m-5 flex-wrap">
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-circle-arrow-down"></i> Deposit</h2>
+          <p>Want to Deposit Money to Your Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'deposit_money' %}"><i class="fa-solid fa-circle-arrow-down"></i> Deposit</a>
+          </div>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-circle-arrow-up"></i> Withdraw</h2>
+          <p>Want to Withdraw Money from Your Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'withdraw_money' %}"><i class="fa-solid fa-circle-arrow-up"></i> Withdraw</a>
+          </div>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-arrow-trend-up"></i> Money Transfer</h2>
+          <p>Want to Transfer Money from Your Account to Another Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'send_money' %}"><i class="fa-solid fa-arrow-trend-up"></i> Money Transfer</a>
+          </div>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-hand-holding-dollar"></i> Request For a Loan</h2>
+          <p>Want to Request For a Lona from AspireBank to Your Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'loan_request' %}"><i class="fa-solid fa-hand-holding-dollar"></i> Request Loan</a>
+          </div>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-money-check-dollar"></i> Transaction Report</h2>
+          <p>See Full Transaction Report of Your Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'transaction_report' %}"><i class="fa-solid fa-money-check-dollar"></i> Transactions</a>
+          </div>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title"><i class="fa-solid fa-money-check-dollar"></i> My Loans</h2>
+          <p>See The Report of Loan of Your Account?</p>
+          <div class="card-actions justify-end">
+            <a class="btn btn-primary text-white" href="{% url 'loan_list' %}"><i class="fa-solid fa-money-check-dollar"></i> My Loans</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main %}

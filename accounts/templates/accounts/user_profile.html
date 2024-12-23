@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Profile - AspireBank{% endblock title %}
+
+
+{% block main %}
+
+<div class="flex justify-center my-5">
+    <div class="card bg-base-100 w-96 shadow-xl">
+        <figure>
+          <img src="{% static 'default.png' %}" alt="Profile" class="w-20"/>
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">{{user.first_name}} {{user.last_name}} | ${{user.account.balance}}</h2>
+          <p><span class="font-bold">Account No. </span><kbd class="kbd">{{user.account.account_no}}</kbd></p>
+          <p><span class="font-bold">Account Type: </span>{{user.account.account_type}}</p>
+          <p><span class="font-bold">Username: </span>{{user.username}}</p>
+          <p><span class="font-bold">E-mail: </span>{{user.email}}</p>
+          <p><span class="font-bold">Birth Date: </span>{{user.account.birth_date}}</p>
+          <p><span class="font-bold">Gender: </span>{{user.account.gender}}</p>
+          <p><span class="font-bold">Address: </span>{{user.address.street_address}}</p>
+          <p><span class="font-bold">Country: </span>{{user.address.country}}</p>
+          <div class="card-actions justify-end">
+            <a class="btn bg-red-500 text-white hover:bg-red-600" href="{% url 'change_password' %}">Change Password</a>
+            <a class="btn text-white btn-primary" href="{% url 'update-profile' %}">Edit Profile</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}
