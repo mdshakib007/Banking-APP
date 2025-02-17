@@ -1,5 +1,4 @@
 .BankEnv/
 __pycache__/
-db.sqlite3
 superuser.txt
 .env
